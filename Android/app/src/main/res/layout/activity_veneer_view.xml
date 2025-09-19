@@ -1,0 +1,185 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/purple"
+        android:padding="20dp"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lumber Factory"
+            android:textSize="60dp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Veneering Department"
+            android:textSize="30dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <!-- Order ID, Customer Name, and Estimated Time Section -->
+    <LinearLayout
+        android:id="@+id/orderDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        android:padding="20dp"
+        android:layout_below="@id/header">
+
+        <!-- Order ID -->
+        <TextView
+            android:id="@+id/orderId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order ID: "
+            android:textSize="30dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Customer Name -->
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer Name: "
+            android:textSize="30dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Estimated Time -->
+        <TextView
+            android:id="@+id/estimatedTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estimated Time: "
+            android:textSize="30dp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+    <!-- Exit Button on Top Right -->
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="Exit"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="#FF4444" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔄"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/black"
+        android:textSize="60dp"
+        android:padding="10dp"
+        android:elevation="5dp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/noOrdersMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No orders available"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+    <!-- List of Cuts (Scrollable) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/orderDetailsLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:padding="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:id="@+id/veneerListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+    </ScrollView>
+
+    <!-- Timer Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="130dp">
+
+        <!-- Chronometer (Timer) -->
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingEnd="16dp"
+            android:format="Time: %s" />
+    </LinearLayout>
+
+    <!-- Start and End Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp">
+
+        <!-- Start Button -->
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="130dp"
+            android:layout_height="65dp"
+            android:textSize="30dp"
+            android:text="Start"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#99CC00" />
+
+        <!-- End Button -->
+        <Button
+            android:id="@+id/endButton"
+            android:layout_width="130dp"
+            android:layout_height="65dp"
+            android:textSize="30dp"
+            android:text="End"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:backgroundTint="#99CC00" />
+    </LinearLayout>
+</RelativeLayout>
